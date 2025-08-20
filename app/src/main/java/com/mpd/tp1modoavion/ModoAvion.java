@@ -30,7 +30,7 @@ public class ModoAvion extends BroadcastReceiver {
                     @Override
                     public void run() {
                         try {
-                            String numero = "2664004896";
+                            String numero = "2664553747";
 
                             Uri telefono = Uri.parse("tel:" + numero);
                             //Intent llamar = new Intent(Intent.ACTION_DIAL, telefono); //solo abre la app de llamada con el numero precargado
