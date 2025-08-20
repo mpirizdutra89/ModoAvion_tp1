@@ -26,24 +26,17 @@ public class ModoAvion extends BroadcastReceiver {
                Toast.makeText(context, msj, Toast.LENGTH_LONG).show();
 
 
-                new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            String numero = "2664553747";
-
-                            Uri telefono = Uri.parse("tel:" + numero);
-                            //Intent llamar = new Intent(Intent.ACTION_DIAL, telefono); //solo abre la app de llamada con el numero precargado
-                            Intent llamar = new Intent(Intent.ACTION_CALL, telefono); //este deveria llamar
-
-                            llamar.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            context.startActivity(llamar);
-                        } catch (Exception e) {
-                            Toast.makeText(context, "falla: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                            Log.e("ModoAvion", "Error en la llamada: " + e.getMessage());
-                        }
-                    }
-                }, 2000);
+                try {
+                    String numero = "2664553747";
+                    Uri telefono = Uri.parse("tel:" + numero);
+                    //Intent llamar = new Intent(Intent.ACTION_DIAL, telefono); //solo abre la app de llamada con el numero precargado
+                    Intent llamar = new Intent(Intent.ACTION_CALL, telefono); //inicia la llamada!
+                    llamar.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(llamar);
+                } catch (Exception e) {
+                    Toast.makeText(context, "falla: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    Log.e("ModoAvion", "Error en la llamada: " + e.getMessage());
+                }
             }
         }
     }
